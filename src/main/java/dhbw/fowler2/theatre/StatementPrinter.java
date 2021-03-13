@@ -14,8 +14,6 @@ public class StatementPrinter {
 
         NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
-        ChooseSchauspiel cs;
-
         for (var perf : invoice.performances) {
             var play = plays.get(perf.playID);
             var thisAmount = 0;
