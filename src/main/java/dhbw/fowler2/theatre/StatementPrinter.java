@@ -6,19 +6,22 @@ import java.util.Map;
 
 public class StatementPrinter {
 
-
     public String print(Invoice invoice, Map<String, Play> plays) {
         var totalAmount = 0;
         var volumeCredits = 0;
         var result = String.format("Statement for %s\n", invoice.customer);
 
+
         NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
+
+        ChooseSchauspiel cs;
 
         for (var perf : invoice.performances) {
             var play = plays.get(perf.playID);
             var thisAmount = 0;
 
-            this.priceCalculation(thisAmount, perf, play);
+            cs = new ChooseSchauspiel(new Komödie());
+            cs.berechnePreis(perf);
 
             // add volume credits
             volumeCredits += Math.max(perf.audience - 30, 0);
@@ -31,6 +34,11 @@ public class StatementPrinter {
         }
         result += String.format("Amount owed is %s\n", frmt.format(totalAmount / 100));
         result += String.format("You earned %s credits\n", volumeCredits);
+
+        /*
+
+         */
+
         return result;
     }
 

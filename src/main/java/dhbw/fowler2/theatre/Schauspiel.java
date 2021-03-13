@@ -1,7 +1,7 @@
 package dhbw.fowler2.theatre;
 
-public abstract class Schauspiel {
+public interface Schauspiel {
 
-    public abstract Integer priceCalculation(Integer thisAmount, Performance perf, Play play);
+    Integer priceCalculation(Performance performance);
 
 }
