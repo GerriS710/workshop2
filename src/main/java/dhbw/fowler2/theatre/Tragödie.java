@@ -1,13 +1,15 @@
 package dhbw.fowler2.theatre;
 
-public class Tragödie implements Schauspiel{
+public class Tragödie extends Play{
 
-    Performance perf;
-    Play play;
     Integer thisAmount = 40000;
 
+    public Tragödie(String name, String type, Performance perf) {
+        super(name, type, perf);
+    }
+
     @Override
-    public Integer priceCalculation() {
+    public Integer berechnePreis() {
         if (perf.audience > 30) {
             thisAmount += 1000 * (perf.audience - 30);
         }

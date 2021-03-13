@@ -20,8 +20,13 @@ public class StatementPrinter {
             var play = plays.get(perf.playID);
             var thisAmount = 0;
 
-            cs = new ChooseSchauspiel(new Komödie());
-            cs.berechnePreis(perf);
+            if (play.type == "comedy") {
+                Komödie k = new Komödie(play.name, play.type, play.perf);
+                totalAmount = k.berechnePreis();
+            } else if (play.type == "tragedy") {
+                Tragödie t = new Tragödie(play.name, play.type, play.perf);
+                totalAmount = t.berechnePreis();
+            }
 
             // add volume credits
             volumeCredits += Math.max(perf.audience - 30, 0);
