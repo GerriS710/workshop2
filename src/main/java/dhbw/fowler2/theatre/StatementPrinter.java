@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class StatementPrinter {
 
+
     public String print(Invoice invoice, Map<String, Play> plays) {
         var totalAmount = 0;
         var volumeCredits = 0;
@@ -49,4 +50,6 @@ public class StatementPrinter {
         return result;
     }
 
-}
+    }
+
+
